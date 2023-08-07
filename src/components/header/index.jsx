@@ -19,7 +19,7 @@ const Header = () => {
           <div className={"title"} onClick={handleClick}>
             FEATURES
           </div>
-          <div className={"title"}>PRICING</div>
+          <div className={"title"}>d</div>
           <div className={"title"}>HOW TO USE</div>
           <div className={"title"}>ROADMAP</div>
         </div>
