@@ -1,0 +1,31 @@
+$colors: (
+  secondary: (
+    700: rgb(14, 13, 19),
+    600: #7b68ee,
+    500: #848286,
+    400: #f8cac5,
+    300: #fbb9b0,
+    200: #ffdbcf,
+    100: hsla(0, 0%, 100%, 0.5),
+    main-bg: #f7f4f9,
+    yellow: #f4c038,
+    red: #ff2200,
+    opacity-black: #1c1c1c,
+    opacity-white: #fbf9fb,
+    green: #99d69c,
+    white: white,
+    black: black,
+    title: black,
+    text: black,
+    description: black,
+  ),
+);
+
+:root {
+  @each $colorname, $color in $colors {
+    @each $key, $value in $color {
+      $keyname: "--color-" + $colorname + "-" + $key;
+      #{$keyname}: #{$value};
+    }
+  }
+}

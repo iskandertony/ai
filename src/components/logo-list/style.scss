@@ -1,0 +1,19 @@
+.logo_list {
+  .title {
+    font-size: 20px;
+  }
+  .anticon {
+    font-size: 24px !important;
+  }
+  .logo_title {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    font-size: 12px !important;
+    color: var(--color-secondary-100);
+  }
+
+  .logo_list_content {
+    margin-top: 32px;
+  }
+}

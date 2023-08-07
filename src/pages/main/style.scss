@@ -1,0 +1,65 @@
+.main {
+  .container {
+    padding-bottom: 40px;
+
+    .container_content {
+      .title {
+        padding-top: 14rem;
+        font-size: 3.25rem;
+        line-height: 4.0625rem;
+        text-align: center;
+
+        .relative {
+          position: relative;
+        }
+
+        .gradient_underline {
+          display: inline-block;
+        }
+
+        .gradient_underline::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 4px;
+          background: linear-gradient(
+            135deg,
+            #228b22 0%,
+            #20b2aa 25%,
+            #00ced1 50%,
+            #00fa9a 75%
+          );
+          width: 340px;
+          margin-left: auto;
+          margin-right: 130px;
+        }
+      }
+
+      .button_main {
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+      }
+    }
+  }
+  .border {
+    border: 1px solid #2c2929;
+  }
+
+  .main_img {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .plus {
+    position: absolute;
+    color: #cbbfbf;
+    font-weight: bold;
+    left: 73px;
+    bottom: -11px;
+    font-size: 25px;
+  }
+}

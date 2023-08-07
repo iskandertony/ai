@@ -1,0 +1,28 @@
+.header {
+  border: 0 solid #e5e7eb;
+  background-color: rgba(14, 12, 21, 0.9);
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  .header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #313133;
+  }
+  h2:hover {
+    cursor: pointer;
+    color: var(--color-secondary-100);
+  }
+  .title {
+    color: var(--color-secondary-100);
+  }
+
+  .title:hover {
+    cursor: pointer;
+    color: var(--color-secondary-white);
+  }
+}
