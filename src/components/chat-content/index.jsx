@@ -17,21 +17,6 @@ const ChatContent = observer(() => {
     setMessages(chatStore.getChatHistory(currentTopic));
   }, [currentTopic]);
 
-  const fileToByteArray = async (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
-      reader.onloadend = (event) => {
-        const arrayBuffer = reader.result;
-        const byteArray = new Uint8Array(arrayBuffer);
-        resolve(byteArray);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) {
@@ -39,22 +24,33 @@ const ChatContent = observer(() => {
       return;
     }
 
-    try {
-      const byteArray = await fileToByteArray(file);
-      console.log("byteArray", byteArray);
-      // Теперь у вас есть byteArray, который можно отправить на бэкенд.
-      const response = await sendImg(byteArray);
-      console.log("response", response);
-      if (response.ok) {
-        setMessages([...messages, "Изображение успешно отправлено"]);
-      } else {
-        setMessages([...messages, "Ошибка при отправке изображения"]);
-      }
-    } catch (error) {
-      // setMessages([...messages, "Произошла сетевая ошибка", error]);
-      console.log("error", error);
-    }
+    const reader = new FileReader();
+    reader.onloadend = async () => {
+      const base64String = reader.result
+        .replace("data:", "")
+        .replace(/^.+,/, "");
 
+      try {
+        console.log("byteArray", base64String);
+        // Теперь у вас есть byteArray, который можно отправить на бэкенд.
+        const response = await sendImg(base64String);
+        console.log("response", response);
+        if (response.ok) {
+          setMessages([...messages, "Изображение успешно отправлено"]);
+        } else {
+          setMessages([...messages, "Ошибка при отправке изображения"]);
+        }
+      } catch (error) {
+        // setMessages([...messages, "Произошла сетевая ошибка", error]);
+        console.log("error", error);
+      }
+
+      reader.onerror = () => {
+        setMessages([...messages, "Ошибка при чтении файла"]);
+      };
+
+      reader.readAsDataURL(file);
+    };
   };
 
   const Class = [
