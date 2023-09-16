@@ -23,32 +23,20 @@ const ChatContent = observer(() => {
       setMessages([...messages, "Файл не выбран"]);
       return;
     }
+    const formData = new FormData();
+    formData.append("file", file[0]);
 
-    const reader = new FileReader();
-    reader.onloadend = async () => {
-      const base64String = reader.result
-        .replace("data:", "")
-        .replace(/^.+,/, "");
-      console.log("base64String", base64String);
-
-      try {
-        const response = await sendImg(base64String);
-        console.log("response", response);
-        if (response.ok) {
-          setMessages([...messages, "Изображение успешно отправлено"]);
-        } else {
-          setMessages([...messages, "Ошибка при отправке изображения"]);
-        }
-      } catch (error) {
-        console.log("error", error);
+    try {
+      const response = await sendImg(formData);
+      console.log("response", response);
+      if (response.ok) {
+        setMessages([...messages, "Изображение успешно отправлено"]);
+      } else {
+        setMessages([...messages, "Ошибка при отправке изображения"]);
       }
-    };
-
-    reader.onerror = () => {
-      setMessages([...messages, "Ошибка при чтении файла"]);
-    };
-
-    reader.readAsDataURL(file);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   const Class = [
