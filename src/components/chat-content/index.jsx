@@ -29,10 +29,9 @@ const ChatContent = observer(() => {
       const base64String = reader.result
         .replace("data:", "")
         .replace(/^.+,/, "");
+      console.log("base64String", base64String);
 
       try {
-        console.log("byteArray", base64String);
-        // Теперь у вас есть byteArray, который можно отправить на бэкенд.
         const response = await sendImg(base64String);
         console.log("response", response);
         if (response.ok) {
@@ -41,16 +40,15 @@ const ChatContent = observer(() => {
           setMessages([...messages, "Ошибка при отправке изображения"]);
         }
       } catch (error) {
-        // setMessages([...messages, "Произошла сетевая ошибка", error]);
         console.log("error", error);
       }
-
-      reader.onerror = () => {
-        setMessages([...messages, "Ошибка при чтении файла"]);
-      };
-
-      reader.readAsDataURL(file);
     };
+
+    reader.onerror = () => {
+      setMessages([...messages, "Ошибка при чтении файла"]);
+    };
+
+    reader.readAsDataURL(file);
   };
 
   const Class = [
