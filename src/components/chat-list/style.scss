@@ -1,0 +1,15 @@
+.chat_list {
+  .chat_content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 12px 25px;
+
+    &.active {
+      background: linear-gradient(270deg, #323337 50%, rgba(80, 62, 110, 0.29) 100%);
+
+      border-radius: 8px;
+    }
+  }
+
+}

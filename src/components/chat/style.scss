@@ -1,4 +1,4 @@
-.chat {
+.chat_component {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +30,10 @@
       font-size: 18px;
     }
   }
+
+  .chat_img {
+    position: absolute;
+  }
 }
 
 .with_border {
@@ -42,8 +46,4 @@
   );
   border-radius: 16px; /*1*/
   border: 2px solid transparent;
-}
-
-.chat img {
-  position: absolute;
 }

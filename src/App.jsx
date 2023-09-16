@@ -1,11 +1,23 @@
+import React from 'react';
 import Header from "./components/header";
-import { Route, Routes } from "react-router-dom";
+import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import { routing } from "./routing";
 
 function App() {
+    const location = useLocation();
+
+    const HeaderRoutes = [
+
+        "/chat",
+
+    ];
+
+    const showHeader = HeaderRoutes.includes(location.pathname);
+
   return (
     <div className="App">
-      <Header />
+        {!showHeader &&       <Header />}
+
       <Routes>
         {Object.keys(routing).map((key) => {
           const rout = routing[key];
@@ -14,6 +26,7 @@ function App() {
           }
           return null;
         })}
+          <Route path="*" element={<Navigate to="/main" />} />
       </Routes>
     </div>
   );

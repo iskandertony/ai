@@ -4,22 +4,31 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
+    "@tensorflow/tfjs": "^4.10.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.6.4",
+    "axios": "^1.5.0",
+    "js-yaml": "^4.1.0",
+    "mobx": "^6.10.2",
+    "mobx-react": "^9.0.1",
+    "onnxjs": "^0.1.8",
+    "onnxruntime-node": "^1.15.1",
+    "onnxruntime-web": "^1.15.1",
     "prettier": "^2.8.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^17.0.2",
+    "react-chat-widget": "^3.1.4",
+    "react-dom": "^17.0.2",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
     "scss": "^0.2.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -40,5 +49,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

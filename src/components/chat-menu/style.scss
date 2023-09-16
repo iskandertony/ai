@@ -1,0 +1,16 @@
+.chat_menu {
+  display: flex;
+  flex-direction: column;
+
+  .chat_content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 12px 20px;
+
+    &.active {
+      background: linear-gradient(270deg, #323337 50%, rgba(70, 79, 111, 0.5) 100%);
+      border-radius: 8px;
+    }
+  }
+}

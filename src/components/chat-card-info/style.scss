@@ -1,0 +1,28 @@
+.chat_card_info {
+  padding: 10px;
+  border-radius: 12px;
+  background: #232627;
+  margin-top: 25px; //TODO временно
+
+  .chat_card_info_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .ant-btn {
+    margin-top: 10px;
+  }
+
+  .text {
+    color: var(--neutral-0350, rgba(232, 236, 239, 0.50));
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+  }
+
+
+}
