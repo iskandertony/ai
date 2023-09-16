@@ -23,21 +23,23 @@ const ChatContent = observer(() => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("file", file);
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const binaryStr = reader.result;
 
-    try {
-      const response = await check();
-      console.log("response", response);
-      if (response.ok) {
-        setMessages([...messages, "Изображение успешно отправлено"]);
-      } else {
-        setMessages([...messages, "Ошибка при отправке изображения"]);
+      try {
+        const response = await sendImg(binaryStr);
+        console.log("response", response);
+        if (response.ok) {
+          setMessages([...messages, "Изображение успешно отправлено"]);
+        } else {
+          setMessages([...messages, "Ошибка при отправке изображения"]);
+        }
+      } catch (error) {
+        // setMessages([...messages, "Произошла сетевая ошибка", error]);
+        console.log("error", error);
       }
-    } catch (error) {
-      // setMessages([...messages, "Произошла сетевая ошибка", error]);
-      console.log("error", error);
-    }
+    };
 
     // const reader = new FileReader();
     // reader.onloadend = () => {
@@ -53,10 +55,10 @@ const ChatContent = observer(() => {
     //
     //   setMessages([...messages, potatoReport]);
     // };
-    // reader.onerror = () => {
-    //   setMessages([...messages, "Ошибка при чтении файла"]);
-    // };
-    // reader.readAsDataURL(file);
+    reader.onerror = () => {
+      setMessages([...messages, "Ошибка при чтении файла"]);
+    };
+    reader.readAsDataURL(file);
   };
 
   const Class = [
