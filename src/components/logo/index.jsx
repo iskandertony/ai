@@ -7,7 +7,7 @@ const Logo = (props) => {
 
             <div className={"flex gap-10"} onClick={onClick}>
                 <Icon name={"logo"} />
-                <h2>Brainwave</h2>
+                <h2>Mad AI</h2>
             </div>
 
     );

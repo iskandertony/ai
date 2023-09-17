@@ -7,10 +7,8 @@ const Chat = () => {
     <div className={"chat_component with_border"}>
       <img src={robot} alt="описание_изображения" className={"chat_img"} />
       <div className={"input"}>
-        {" "}
         <LoadingOutlined /> <span className={"text"}> Ai is generating </span>
       </div>
-
     </div>
   );
 };

@@ -23,8 +23,9 @@ const ChatContent = observer(() => {
       setMessages([...messages, "Файл не выбран"]);
       return;
     }
+
     const formData = new FormData();
-    formData.append("file", file[0]);
+    formData.append("file", file);
 
     try {
       const response = await sendImg(formData);
@@ -38,18 +39,6 @@ const ChatContent = observer(() => {
       console.log("error", error);
     }
   };
-
-  const Class = [
-    {
-      name: "cars",
-    },
-    {
-      name: "flowers",
-    },
-    {
-      name: "fruit",
-    },
-  ];
 
   return (
     <div className={"cht_content"}>
@@ -93,15 +82,27 @@ const ChatContent = observer(() => {
           <Button>Share</Button>
         </div>
         <div className={"part_two_content"}>
-          {Class.map((item, index) => (
-            <div
-              className={"title"}
-              key={index}
-              onClick={() => setCurrentTopic(item.name)}
-            >
-              {item.name}
+          <div className={"chip"}>
+            <div className={"title"}>Как пользоваться ?</div>
+            <div className={"text"}>
+              Введите ваше имя пользователя или зарегистрируйтесь, чтобы создать
+              новый аккаунт.
             </div>
-          ))}
+          </div>
+          <div className={"chip"}>
+            <div className={"title"}>Как отправить картинку ?</div>
+            <div className={"text"}>
+              Вы можете отправить изображения, нажав на значок "Клип" рядом с
+              полем ввода.
+            </div>
+          </div>
+          <div className={"chip"}>
+            <div className={"title"}>Доп инфо</div>
+            <div className={"text"}>
+              Если у вас возникли вопросы или проблемы, нажмите на значок
+              "Помощь" в верхнем правом углу экрана.
+            </div>
+          </div>
         </div>
       </div>
     </div>

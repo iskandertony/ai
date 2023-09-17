@@ -4,7 +4,6 @@ import * as ort from "onnxruntime-web";
 const ChatOnnx = () => {
   const [image, setImage] = useState(null);
   const [result, setResult] = useState(null);
-  const modelRef = useRef(null);
   const [model, setModel] = useState(null);
 
   useEffect(() => {
